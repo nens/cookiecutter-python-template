@@ -24,6 +24,7 @@ Development of this template itself
 We don't need to run inside a vm/docker ourselves, so to set it up and test
 it, just do the regular::
 
+  $ PIPENV_VENV_IN_PROJECT=1 pipenv --three
   $ pipenv install --dev
   $ pipenv run pytest
 
