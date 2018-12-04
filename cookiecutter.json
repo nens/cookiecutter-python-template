@@ -2,6 +2,6 @@
     "full_name": "Your name",
     "email": "Your email address (eq. you@nelen-schuurmans.nl)",
     "project_name": "your-project-with-dashes",
-    "package_name": "{{ cookiecutter.project_slug.lower().replace('-', '_') }}",
+    "package_name": "{{ cookiecutter.project_name.lower().replace('-', '_') }}",
     "project_short_description": "A short one-line description of the project"
 }
