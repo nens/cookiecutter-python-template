@@ -16,7 +16,7 @@ tests_require = [
     'mock',
     ]
 
-setup(name='{{ cookiecutter.project_slug }}',
+setup(name='{{ cookiecutter.project_name }}',
       version=version,
       description="{{ cookiecutter.project_short_description }}",
       long_description=long_description,
