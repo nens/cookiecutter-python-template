@@ -7,9 +7,8 @@ import unittest
 
 
 class BasicTest(unittest.TestCase):
-
     def setUp(self):
-        self.tempdir = tempfile.mkdtemp(prefix='staticsite')
+        self.tempdir = tempfile.mkdtemp(prefix="staticsite")
         self.cookiecutter_dir = os.getcwd()
         os.chdir(self.tempdir)
 
@@ -21,4 +20,5 @@ class BasicTest(unittest.TestCase):
         cookiecutter(
             self.cookiecutter_dir,
             no_input=True,
-            extra_context={'email': 'your.name@nelen-schuurmans.nl'})
+            extra_context={"email": "your.name@nelen-schuurmans.nl"},
+        )
