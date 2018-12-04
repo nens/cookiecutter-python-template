@@ -18,4 +18,7 @@ class BasicTest(unittest.TestCase):
         shutil.rmtree(self.tempdir)
 
     def test_smoke(self):
-        cookiecutter(self.cookiecutter_dir, no_input=True)
+        cookiecutter(
+            self.cookiecutter_dir,
+            no_input=True,
+            extra_context={'email': 'your.name@nelen-schuurmans.nl'})
