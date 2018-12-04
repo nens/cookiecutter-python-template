@@ -1,0 +1,9 @@
+sudo: false
+language: python
+python:
+  - 3.6
+install:
+  - pip install pipenv
+  - PIPENV_IGNORE_VIRTUALENVS=1 pipenv install -e .
+script:
+  - pipenv run pytest

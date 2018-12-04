@@ -1,0 +1,8 @@
+*~
+*.pyc
+.idea
+.venv
+*.egg-info
+
+# this is a library, so we ignore Pipfile.lock
+Pipfile.lock
