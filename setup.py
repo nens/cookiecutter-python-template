@@ -4,7 +4,7 @@ version = '0.1.dev0'
 
 install_requires = [
     'cookiecutter',
-    'pytest',  # pipenv doesn't install test_requires.
+    'pytest',
     ]
 
 tests_require = [
