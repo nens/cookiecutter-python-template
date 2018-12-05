@@ -31,8 +31,8 @@ class BasicTest(unittest.TestCase):
     def test_generated_project(self):
         os.chdir("my-project")
         subprocess.run(
-            ["pipenv", "--three"], shell=True, check=True, capture_output=True
+            ["pipenv", "--three"], shell=True, check=True
         )
         subprocess.run(
-            ["pipenv", "install"], shell=True, check=True, capture_output=True
+            ["pipenv", "install"], shell=True, check=True
         )
