@@ -16,6 +16,14 @@ pipenv``. Then run::
     $ PIPENV_VENV_IN_PROJECT=1 pipenv --three
     $ pipenv install
 
+There will be a script you can run like this::
+
+    $ pipenv run run-{{ cookiecutter.project_name }}
+
+It runs the `main()` function in `{{ cookiecutter.project_name }}/scripts.py`,
+adjust that if necessary. The script is configured in `setup.py` (see
+`entry_points`).
+
 
 Steps to do after generating with cookiecutter
 ----------------------------------------------
