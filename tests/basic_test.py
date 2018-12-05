@@ -9,7 +9,7 @@ import unittest
 
 class BasicTest(unittest.TestCase):
     def setUp(self):
-        self.tempdir = tempfile.mkdtemp(prefix="staticsite")
+        self.tempdir = tempfile.mkdtemp(prefix="python-template")
         self.cookiecutter_dir = os.getcwd()
         os.chdir(self.tempdir)
         cookiecutter(

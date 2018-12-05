@@ -7,14 +7,14 @@ install_requires = ["cookiecutter", "pytest"]
 tests_require = []
 
 setup(
-    name="cookiecutter-staticsite-template",
+    name="cookiecutter-python-template",
     packages=[],
     version=version,
-    description="Cookiecutter template for a static site",
+    description="Cookiecutter template for a plain python project or library",
     author="Reinout van Rees",
     license="MIT",
     author_email="reinout@vanrees.org",
-    url="https://github.com/nens/cookiecutter-staticsite-template",
+    url="https://github.com/nens/cookiecutter-python-template",
     keywords=["cookiecutter", "template", "package"],
     classifiers=[
         "Development Status :: 4 - Beta",

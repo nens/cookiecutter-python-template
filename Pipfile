@@ -7,7 +7,7 @@ name = "pypi"
 "zest.releaser" = "*"
 
 [packages]
-cookiecutter-staticsite-template = {editable = true, path = "."}
+cookiecutter-python-template = {editable = true, path = "."}
 
 [requires]
 python_version = "3"

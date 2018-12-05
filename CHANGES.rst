@@ -1,5 +1,5 @@
-Changelog for cookiecutter-staticsite-template
-==============================================
+Changelog for cookiecutter-python-template
+==========================================
 
 
 0.1 (unreleased)
