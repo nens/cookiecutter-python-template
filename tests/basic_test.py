@@ -36,3 +36,6 @@ class BasicTest(unittest.TestCase):
         subprocess.run(
             ["pipenv", "install"], shell=True, check=True
         )
+        subprocess.run(
+            ["pipenv", "run", "pytest"], shell=True, check=True
+        )

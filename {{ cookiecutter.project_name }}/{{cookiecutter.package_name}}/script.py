@@ -36,7 +36,6 @@ def main():
     logging.basicConfig(level=log_level, format="%(levelname)s: %(message)s")
 
     try:
-        kwargs = vars(get_parser().parse_args())
         print("Call some function from another file here")
         # ^^^ TODO: pass in options.xyz where needed.
     except:
