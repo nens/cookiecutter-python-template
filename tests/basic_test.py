@@ -2,6 +2,7 @@ from cookiecutter.main import cookiecutter
 
 import os
 import shutil
+import subprocess
 import tempfile
 import unittest
 
@@ -11,14 +12,27 @@ class BasicTest(unittest.TestCase):
         self.tempdir = tempfile.mkdtemp(prefix="staticsite")
         self.cookiecutter_dir = os.getcwd()
         os.chdir(self.tempdir)
+        cookiecutter(
+            self.cookiecutter_dir,
+            no_input=True,
+            extra_context={
+                "project_name": "my-project",
+                "email": "your.name@nelen-schuurmans.nl",
+            },
+        )
 
     def tearDown(self):
         os.chdir(self.cookiecutter_dir)
         shutil.rmtree(self.tempdir)
 
     def test_smoke(self):
-        cookiecutter(
-            self.cookiecutter_dir,
-            no_input=True,
-            extra_context={"email": "your.name@nelen-schuurmans.nl"},
+        assert "my-project" in os.listdir()
+
+    def test_generated_project(self):
+        os.chdir("my-project")
+        subprocess.run(
+            ["pipenv", "--three"], shell=True, check=True, capture_output=True
+        )
+        subprocess.run(
+            ["pipenv", "install"], shell=True, check=True, capture_output=True
         )
