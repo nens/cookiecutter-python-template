@@ -26,5 +26,7 @@ setup(
     install_requires=install_requires,
     tests_require=tests_require,
     extras_require={"test": tests_require},
-    entry_points={"console_scripts": []},
+    entry_points={"console_scripts": [
+        "run-{{ cookiecutter.project_name }} = {{ cookiecutter.package_name }}.scripts:main",
+    ]},
 )
