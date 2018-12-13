@@ -24,9 +24,11 @@ nosetests.xml
 htmlcov
 .codeintel
 coverage.xml
+.pytest_cache
 
-# Pycharm
+# Pycharm, visual studio
 .idea
+.vscode
 
 # Docker
 docker-compose.override.yml
