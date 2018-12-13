@@ -1,10 +1,10 @@
 from setuptools import setup
 
-version = "0.1.dev0"
+version = "0.1.dev1"
 
-install_requires = ["cookiecutter", "pytest"]
+install_requires = ["cookiecutter"]
 
-tests_require = []
+tests_require = ["pytest", "pytest-black"]
 
 setup(
     name="cookiecutter-python-template",
