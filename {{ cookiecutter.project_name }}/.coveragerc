@@ -1,7 +1,4 @@
 [run]
-omit =
-    */migrations/*
-    *settings.py
 source = {{ cookiecutter.package_name }}
 
 [report]

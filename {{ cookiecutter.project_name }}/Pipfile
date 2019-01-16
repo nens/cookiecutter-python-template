@@ -6,6 +6,7 @@ verify_ssl = true
 "flake8" = "*"
 "black" = "==18.9.b0"
 "zest.releaser" = "*"
+"coveralls" = "*"
 
 [packages]
 "{{ cookiecutter.project_name }}" = {path = ".", editable = true, extras=["test"]}
