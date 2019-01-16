@@ -9,12 +9,22 @@ Usage, etc.
 Installation
 ------------
 
+We can be installed with::
+
+  $ pip install {{ cookiecutter.project_name }}
+
+(TODO: after the first release has been made)
+
+
+Development installation of this project itself
+-----------------------------------------------
+
 We're installed with `pipenv <https://docs.pipenv.org/>`_, a handy wrapper
 around pip and virtualenv. Install that first with ``pip install
 pipenv``. Then run::
 
     $ PIPENV_VENV_IN_PROJECT=1 pipenv --three
-    $ pipenv install
+    $ pipenv install --dev
 
 There will be a script you can run like this::
 
@@ -23,6 +33,21 @@ There will be a script you can run like this::
 It runs the `main()` function in `{{ cookiecutter.project_name }}/scripts.py`,
 adjust that if necessary. The script is configured in `setup.py` (see
 `entry_points`).
+
+In order to get nicely formatted python files without having to spend manual
+work on it, run the following command periodically::
+
+  $ pipenv run black hydxlib
+
+Run the tests regularly. This also checks with pyflakes, black and it reports
+coverage. Pure luxury::
+
+  $ pipenv run pytest
+
+The tests are also run automatically on "travis", you'll see it in the pull
+requests. There's also `coverage reporting
+<https://coveralls.io/github/nens/{{ cookiecutter.project_name }}>`_ on
+coveralls.io (once it has been set up).
 
 
 Steps to do after generating with cookiecutter
@@ -44,5 +69,7 @@ Steps to do after generating with cookiecutter
 
 - Update this readme. Use `.rst
   <http://www.sphinx-doc.org/en/stable/rest.html>`_ as the format.
+
+- Ask Reinout to configure travis and coveralls.
 
 - Remove this section as you've done it all :-)

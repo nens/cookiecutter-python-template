@@ -30,12 +30,7 @@ class BasicTest(unittest.TestCase):
 
     def test_generated_project(self):
         os.chdir("my-project")
-        subprocess.run(
-            ["pipenv", "--three"], shell=True, check=True
-        )
-        subprocess.run(
-            ["pipenv", "install"], shell=True, check=True
-        )
-        subprocess.run(
-            ["pipenv", "run", "pytest"], shell=True, check=True
-        )
+        subprocess.run(["pipenv", "--three"], shell=True, check=True)
+        subprocess.run(["pipenv", "install"], shell=True, check=True)
+        subprocess.run(["pipenv", "run", "pytest"], shell=True, check=True)
+        subprocess.run(["pipenv", "run", "black", "--check"], shell=True, check=True)

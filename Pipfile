@@ -4,10 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
+"black" = "==18.9.b0"
 "zest.releaser" = "*"
 
 [packages]
-cookiecutter-python-template = {editable = true, path = "."}
+cookiecutter-python-template = {editable = true, path = ".", extras=["test"]}
 
 [requires]
 python_version = "3"
