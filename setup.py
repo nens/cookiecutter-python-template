@@ -4,7 +4,7 @@ version = "0.1.dev1"
 
 install_requires = ["cookiecutter"]
 
-tests_require = ["pytest", "pytest-black"]
+tests_require = ["pytest"]
 
 setup(
     name="cookiecutter-python-template",
