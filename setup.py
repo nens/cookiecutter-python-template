@@ -1,6 +1,6 @@
 from setuptools import setup
 
-version = "0.1.dev1"
+version = "0.1"
 
 install_requires = ["cookiecutter"]
 

@@ -2,7 +2,7 @@ Changelog for cookiecutter-python-template
 ==========================================
 
 
-0.1 (unreleased)
+0.1 (2019-01-16)
 ----------------
 
 - Started the project.
