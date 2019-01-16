@@ -6,3 +6,6 @@ Changelog for cookiecutter-python-template
 ----------------
 
 - Started the project.
+
+- Updated the generated project structure after experience with the first
+  project that used it.
