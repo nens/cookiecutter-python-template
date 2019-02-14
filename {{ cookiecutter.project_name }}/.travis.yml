@@ -14,6 +14,7 @@ after_success:
 #   user: "nens"
 #   password:
 #     secure: LongStringThatNeedsToBeSetByReinout
+#   # (travis encrypt NENS-PASSWORD --com --add deploy.password)
 #   on:
 #     tags: true
 #   distributions: "sdist bdist_wheel"

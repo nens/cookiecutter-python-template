@@ -23,12 +23,12 @@ We're installed with `pipenv <https://docs.pipenv.org/>`_, a handy wrapper
 around pip and virtualenv. Install that first with ``pip install
 pipenv``. Then run::
 
-    $ PIPENV_VENV_IN_PROJECT=1 pipenv --three
-    $ pipenv install --dev
+  $ PIPENV_VENV_IN_PROJECT=1 pipenv --three
+  $ pipenv install --dev
 
 There will be a script you can run like this::
 
-    $ pipenv run run-{{ cookiecutter.project_name }}
+  $ pipenv run run-{{ cookiecutter.project_name }}
 
 It runs the `main()` function in `{{ cookiecutter.project_name }}/scripts.py`,
 adjust that if necessary. The script is configured in `setup.py` (see
@@ -37,17 +37,24 @@ adjust that if necessary. The script is configured in `setup.py` (see
 In order to get nicely formatted python files without having to spend manual
 work on it, run the following command periodically::
 
-  $ pipenv run black hydxlib
+  $ pipenv run black {{ cookiecutter.package_name }}
 
 Run the tests regularly. This also checks with pyflakes, black and it reports
 coverage. Pure luxury::
 
   $ pipenv run pytest
 
-The tests are also run automatically on "travis", you'll see it in the pull
-requests. There's also `coverage reporting
+The tests are also run automatically `on travis-ci
+<https://travis-ci.com/nens/{{ cookiecutter.project_name }}>`_, you'll see it
+in the pull requests. There's also `coverage reporting
 <https://coveralls.io/github/nens/{{ cookiecutter.project_name }}>`_ on
 coveralls.io (once it has been set up).
+
+If you need a new dependency (like `requests`), add it in `setup.py` in
+`install_requires`. Afterwards, run install again to actuall install your
+dependency::
+
+  $ pipenv install --dev
 
 
 Steps to do after generating with cookiecutter
