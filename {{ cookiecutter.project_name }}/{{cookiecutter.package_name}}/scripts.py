@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 def get_parser():
-    """ Return argument parser. """
+    """Return argument parser."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "-v",
@@ -25,8 +25,14 @@ def get_parser():
     return parser
 
 
-def main():
-    """ Call command with args from parser. """
+def main():  # pragma: no cover
+    """Call main command with args from parser.
+
+    This method is called when you run 'bin/run-{{ cookiecutter.project_name }}',
+    this is configured in 'setup.py'. Adjust when needed. You can have multiple
+    main scripts.
+
+    """
     options = get_parser().parse_args()
     if options.verbose:
         log_level = logging.DEBUG
@@ -40,7 +46,3 @@ def main():
     except:
         logger.exception("An exception has occurred.")
         return 1
-
-
-if __name__ == "__main__":
-    exit(main())
