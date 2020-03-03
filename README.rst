@@ -23,6 +23,6 @@ Development of this template itself
 
 Just do the regular::
 
-  $ PIPENV_VENV_IN_PROJECT=1 pipenv --three
-  $ pipenv install --dev
-  $ pipenv run pytest
+  $ python3 -m venv .
+  $ bin/pip install -r requirements.txt
+  $ bin/pytest
