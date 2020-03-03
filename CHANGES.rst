@@ -2,7 +2,7 @@ Changelog for cookiecutter-python-template
 ==========================================
 
 
-0.2 (unreleased)
+0.2 (2020-03-03)
 ----------------
 
 - Switched from pipenv to plain virtualenv+pip.
