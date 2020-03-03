@@ -1,9 +1,9 @@
 *~
 *.pyc
 .idea
-.venv
 *.egg-info
 .pytest_cache
-
-# this is a library, so we ignore Pipfile.lock
-Pipfile.lock
+bin/
+lib/
+lib64
+pyvenv.cfg

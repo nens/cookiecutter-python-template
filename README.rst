@@ -8,7 +8,7 @@ can create a fresh plain python project or library.
 Using this cookiecutter template
 --------------------------------
 
-Install/upgrade cookiecutter and pipenv::
+Install/upgrade cookiecutter::
 
   $ pip install cookiecutter --upgrade
 
@@ -23,6 +23,6 @@ Development of this template itself
 
 Just do the regular::
 
-  $ PIPENV_VENV_IN_PROJECT=1 pipenv --three
-  $ pipenv install --dev
-  $ pipenv run pytest
+  $ python3 -m venv .
+  $ bin/pip install -r requirements.txt
+  $ bin/pytest

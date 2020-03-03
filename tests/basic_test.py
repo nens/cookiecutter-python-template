@@ -3,6 +3,7 @@ from cookiecutter.main import cookiecutter
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -30,7 +31,10 @@ class BasicTest(unittest.TestCase):
 
     def test_generated_project(self):
         os.chdir("my-project")
-        subprocess.run(["pipenv", "--three"], shell=True, check=True)
-        subprocess.run(["pipenv", "install"], shell=True, check=True)
-        subprocess.run(["pipenv", "run", "pytest"], shell=True, check=True)
-        subprocess.run(["pipenv", "run", "black", "--check"], shell=True, check=True)
+        # We have to pass a full string instead of clean splitted ([...])
+        # arguments as otherwise calling python from within our own python
+        # interferes too much.
+        subprocess.run("%s -m venv ." % sys.executable, shell=True, check=True)
+        subprocess.run("bin/pip install -r requirements.txt", shell=True, check=True)
+        subprocess.run("bin/pytest", shell=True, check=True)
+        subprocess.run("bin/black --check", shell=True, check=True)

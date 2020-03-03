@@ -5,7 +5,10 @@ Changelog for cookiecutter-python-template
 0.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Switched from pipenv to plain virtualenv+pip.
+
+- Fixed the test setup so that running the tests for the generated project
+  would really actually run the tests :-)
 
 
 0.1 (2019-01-16)
