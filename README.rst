@@ -8,7 +8,7 @@ can create a fresh plain python project or library.
 Using this cookiecutter template
 --------------------------------
 
-Install/upgrade cookiecutter and pipenv::
+Install/upgrade cookiecutter::
 
   $ pip install cookiecutter --upgrade
 
