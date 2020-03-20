@@ -13,9 +13,12 @@ jobs:
     steps:
       # Checkout the code.
       - uses: actions/checkout@v2
+      # Activate python environment
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
       - name: build
         run: |
-          sudo apt-get install python3-venv
           python3 -m venv .
           bin/pip install -r requirements.txt
       - name: test
