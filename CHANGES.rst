@@ -2,7 +2,7 @@ Changelog for cookiecutter-python-template
 ==========================================
 
 
-0.3 (unreleased)
+0.3 (2020-03-23)
 ----------------
 
 - Moved from travis-ci to github actions.
