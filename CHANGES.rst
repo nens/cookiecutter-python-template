@@ -2,6 +2,12 @@ Changelog for cookiecutter-python-template
 ==========================================
 
 
+0.5 (unreleased)
+----------------
+
+- Nothing changed yet.
+
+
 0.4 (2020-03-23)
 ----------------
 
