@@ -47,15 +47,29 @@ coverage. Pure luxury::
 
   $ bin/pytest
 
-The tests are also run automatically `on travis-ci
-<https://travis-ci.com/nens/{{ cookiecutter.project_name }}>`_, you'll see it
-in the pull requests. There's also `coverage reporting
-<https://coveralls.io/github/nens/{{ cookiecutter.project_name }}>`_ on
-coveralls.io (once it has been set up).
+The tests are also run automatically `on "github actions"
+<https://githug.com/nens/{{ cookiecutter.project_name }}/actions>`_ for
+"master" and for pull requests. So don't just make a branch, but turn it into
+a pull request right away:
 
-If you need a new dependency (like `requests`), add it in `setup.py` in
-`install_requires`. Afterwards, run install again to actuall install your
-dependency::
+- Prepend the title with "[WIP]", work in progress. That way you make clear it
+  isn't ready yet to be merged.
+
+- **Important**: it is easy to give feedback on pull requests. Little comments
+  on the individual lines, for instance. So use it to get early feedback, if
+  you think that's useful.
+
+- On your pull request page, you also automatically get the feedback from the
+  automated tests.
+
+There's also
+`coverage reporting <https://coveralls.io/github/nens/{{ cookiecutter.project_name }}>`_
+on coveralls.io (once it has been set up).
+
+If you need a new dependency (like ``requests``), add it in ``setup.py`` in
+``install_requires``. Local development tools, like "black", can be added to the
+``requirements.txt`` directoy. In both cases, run install again to actuall
+install your dependency::
 
   $ bin/pip install -r requirements.txt
 
