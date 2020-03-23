@@ -24,10 +24,10 @@ jobs:
       - name: test
         run: bin/pytest
       # Reinout: enable this after setting COVERALLS_REPO_TOKEN as a secret.
-      # Note: only if the repo is public.
+      # Note: only if the repo is public. Oh, and use curly braces.
       # - name: coverage report
       #   run: bin/coveralls
       #   env:
-      #     COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      #     COVERALLS_REPO_TOKEN: $[[ secrets.COVERALLS_REPO_TOKEN ]]
 
 # Possible TODO for Reinout: set up automatic pypi releases for tags.
