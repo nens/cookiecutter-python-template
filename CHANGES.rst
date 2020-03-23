@@ -5,7 +5,7 @@ Changelog for cookiecutter-python-template
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Removed ``.travis.yml`` file from generated project.
 
 
 0.3 (2020-03-23)
