@@ -7,6 +7,10 @@ Changelog for cookiecutter-python-template
 
 - Removed ``.travis.yml`` file from generated project.
 
+- Fixed github actions dirname.
+
+- Added proper secret-based coveralls.io setup.
+
 
 0.3 (2020-03-23)
 ----------------
