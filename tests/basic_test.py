@@ -33,6 +33,6 @@ class BasicTest(unittest.TestCase):
         # We have to pass a full string instead of clean splitted ([...])
         # arguments as otherwise calling python from within our own python
         # interferes too much.
-        subprocess.run("%s -m virtualenv ." % sys.executable, shell=True, check=True)
+        subprocess.run("%s -m venv ." % sys.executable, shell=True, check=True)
         subprocess.run("bin/pip install -r requirements.txt", shell=True, check=True)
         subprocess.run("bin/pytest", shell=True, check=True)
