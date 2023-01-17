@@ -16,10 +16,6 @@ class BasicTest(unittest.TestCase):
         cookiecutter(
             self.cookiecutter_dir,
             no_input=True,
-            extra_context={
-                "project_name": "my-project",
-                "email": "your.name@nelen-schuurmans.nl",
-            },
         )
 
     def tearDown(self):
