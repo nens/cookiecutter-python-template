@@ -16,7 +16,7 @@ def get_version():
 
 install_requires = []
 
-tests_require = ["pytest", "mock", "pytest-cov", "pytest-flakes", "pytest-black"]
+tests_require = ["pytest", "pytest-cov"]
 
 setup(
     name="{{ cookiecutter.project_name }}",
