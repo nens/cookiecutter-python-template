@@ -4,5 +4,5 @@
 
 # Extra development dependencies
 black
-coveralls
+pre-commit
 zest.releaser

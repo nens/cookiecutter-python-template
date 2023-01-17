@@ -62,10 +62,6 @@ a pull request right away:
 - On your pull request page, you also automatically get the feedback from the
   automated tests.
 
-There's also
-`coverage reporting <https://coveralls.io/github/nens/{{ cookiecutter.project_name }}>`_
-on coveralls.io (once it has been set up).
-
 If you need a new dependency (like ``requests``), add it in ``setup.py`` in
 ``install_requires``. Local development tools, like "black", can be added to the
 ``requirements.txt`` directoy. In both cases, run install again to actuall
@@ -93,7 +89,5 @@ Steps to do after generating with cookiecutter
 
 - Update this readme. Use `.rst
   <http://www.sphinx-doc.org/en/stable/rest.html>`_ as the format.
-
-- Ask Reinout to configure travis and coveralls.
 
 - Remove this section as you've done it all :-)
