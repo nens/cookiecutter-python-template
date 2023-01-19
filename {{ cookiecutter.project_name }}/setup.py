@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import pathlib
 
 long_description = "\n\n".join([open("README.rst").read(), open("CHANGES.rst").read()])
@@ -30,7 +30,7 @@ setup(
     author_email="info@nelen-schuurmans.nl",
     url="https://github.com/nens/{{ cookiecutter.project_name }}",
     license="MIT",
-    packages=["{{ cookiecutter.package_name }}"],
+    packages=[find_packages("{{ cookiecutter.package_name }}*")],
     include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,

@@ -1,7 +1,8 @@
-include LICENSE
 # Include docs in the root.
 include *.rst
+include LICENSE
+# Include everything in our project directory.
+graft {{ cookiecutter.package_name }}
 # Exclude byte-compiled code
-recursive-exclude .venv *
-recursive-exclude * __pycache__
-recursive-exclude * *.py[co]
+global-exclude __pycache__
+global-exclude *.py[co]
