@@ -1,4 +1,4 @@
-name: Linux
+{% raw -%}name: Linux
 
 # Run on PR requests. And on master itself.
 on:
@@ -44,3 +44,5 @@ jobs:
 
       - name: Run tests
         run: pytest --cov
+
+{% endraw -%}
