@@ -9,17 +9,19 @@ on:
 
 jobs:
   build_and_test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      # Checkout the code.
-      - uses: actions/checkout@v2
-      # Activate python environment
-      - uses: actions/setup-python@v1
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.7'
-      - name: build
+          python-version: '3.10'
+      
+      - name: Install python dependencies
         run: |
           python3 -m venv .
           bin/pip install -r requirements.txt
+
       - name: test
         run: bin/pytest

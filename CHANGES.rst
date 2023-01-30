@@ -5,7 +5,13 @@ Changelog for cookiecutter-python-template
 0.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added pre-commit and 'lint' github action. Updated flake8 and isort settings.
+
+- Upgraded the 'test' github action.
+
+- Added a {{ package_name }}.__version__.
+
+- Hard code 'full_name' and 'email' to "Nelen & Schuurmans" and "info@nelen-schuurmans.nl".
 
 
 0.4 (2020-03-23)

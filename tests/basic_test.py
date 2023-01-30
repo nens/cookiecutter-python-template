@@ -17,8 +17,7 @@ class BasicTest(unittest.TestCase):
             self.cookiecutter_dir,
             no_input=True,
             extra_context={
-                "project_name": "my-project",
-                "email": "your.name@nelen-schuurmans.nl",
+                "project_name": "my-project"
             },
         )
 
@@ -35,6 +34,5 @@ class BasicTest(unittest.TestCase):
         # arguments as otherwise calling python from within our own python
         # interferes too much.
         subprocess.run("%s -m venv ." % sys.executable, shell=True, check=True)
-        subprocess.run("bin/pip install -r requirements.txt", shell=True, check=True)
+        subprocess.run("bin/pip install -e .[test]", shell=True, check=True)
         subprocess.run("bin/pytest", shell=True, check=True)
-        subprocess.run("bin/black --check", shell=True, check=True)
