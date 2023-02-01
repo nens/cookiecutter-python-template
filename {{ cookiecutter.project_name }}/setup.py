@@ -30,7 +30,7 @@ setup(
     author_email="info@nelen-schuurmans.nl",
     url="https://github.com/nens/{{ cookiecutter.project_name }}",
     license="MIT",
-    packages=find_packages("{{ cookiecutter.package_name }}*"),
+    packages=find_packages(include="{{ cookiecutter.package_name }}*"),
     include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,
