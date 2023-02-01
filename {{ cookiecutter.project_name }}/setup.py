@@ -24,7 +24,7 @@ setup(
     description="{{ cookiecutter.project_short_description }}",
     long_description=long_description,
     # Get strings from http://www.python.org/pypi?%3Aaction=list_classifiers
-    classifiers=["Programming Language :: Python", "Framework :: Django"],
+    classifiers=["Programming Language :: Python"],
     keywords=[],
     author="Nelen & Schuurmans",
     author_email="info@nelen-schuurmans.nl",
