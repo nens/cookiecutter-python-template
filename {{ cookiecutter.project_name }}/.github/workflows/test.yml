@@ -24,7 +24,7 @@ jobs:
         with:
           push: false
           load: true
-          tags: {% endraw -%}{{ cookiecutter.project_name }}{% raw -%}/web:latest
+          tags: {% endraw -%}{{ cookiecutter.package_name }}{% raw -%}/web:latest
           file: ./Dockerfile
           context: .
           cache-from: type=gha
