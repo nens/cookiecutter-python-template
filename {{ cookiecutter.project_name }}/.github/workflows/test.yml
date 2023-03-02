@@ -9,7 +9,7 @@ on:
 
 jobs:
   TestLinux:
-    name: Linux, Python ${{ matrix.python }}
+    name: Linux, Python
     runs-on: ubuntu-latest
 
     steps:
