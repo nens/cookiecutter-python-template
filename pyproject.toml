@@ -35,6 +35,9 @@ release = [
 [project.urls]
 homepage = "https://github.com/nens/cookiecutter-python-template"
 
+[tool.setuptools]
+packages = []
+
 [tool.pytest.ini_options]
 norecursedirs="{{ cookiecutter.project_name }}"
 addopts = "tests/"
