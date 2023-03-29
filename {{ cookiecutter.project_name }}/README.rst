@@ -75,7 +75,7 @@ Steps to do after generating with cookiecutter
 - Go to
   https://github.com/nens/{{cookiecutter.project_name}}/settings/collaboration
   and add the teams with write access (you might have to ask someone with
-  admin rights to do it).
+  admin rights (like Reinout) to do it).
 
 - Update this readme. Use `.rst
   <http://www.sphinx-doc.org/en/stable/rest.html>`_ as the format.
