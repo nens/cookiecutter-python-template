@@ -5,7 +5,7 @@ authors = [
     {name = "Nelen & Schuurmans", email = "info@nelen-schuurmans.nl"},
 ]
 description = "Cookiecutter template for a plain python project or library"
-readme = "README.md"
+readme = ["README.md", "CHANGES.md"]
 license = {text = "MIT"}
 version = "0.5.dev0"
 classifiers = [
