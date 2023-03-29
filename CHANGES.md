@@ -1,7 +1,7 @@
 # Changelog for cookiecutter-python-template
 
 
-## 0.5 (unreleased)
+## 0.5 (2023-03-29)
 
 - Added pre-commit and 'lint' github action. Updated flake8 and isort settings.
 
