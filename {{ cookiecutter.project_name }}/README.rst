@@ -54,8 +54,8 @@ a pull request right away:
 - On your pull request page, you also automatically get the feedback from the
   automated tests.
 
-If you need a new dependency (like ``requests``), add it in ``setup.py`` in
-``install_requires``.
+If you need a new dependency (like ``requests``), add it in ``pyproject.toml`` in
+``dependencies``. And update your local install with::
 
   $ bin/pip install -e .[test]
 
