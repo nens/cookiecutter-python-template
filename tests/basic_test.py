@@ -41,5 +41,8 @@ class BasicTest(unittest.TestCase):
         os.chdir("my-project")
         subprocess.run("git init", shell=True, check=True)
         subprocess.run("git add -A", shell=True, check=True)
-        subprocess.run("pre-commit install", shell=True, check=True)
-        subprocess.run("pre-commit run -av", shell=True, check=True)
+        # "sys.executable -m pre_commit" is the same as calling "pre-commit",
+        # but in a way that's handier for testing as we can add pre-commit as
+        # a test dependency that way.
+        subprocess.run("%s -m pre_commit install" % sys.executable, shell=True, check=True)
+        subprocess.run("%s -m pre_commit run -av" % sys.executable, shell=True, check=True)
