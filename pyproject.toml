@@ -2,6 +2,7 @@
 name = "cookiecutter-python-template"
 authors = [
     {name = "Reinout van Rees", email = "reinout@vanrees.org"},
+    {name = "Nelen & Schuurmans", email = "info@nelen-schuurmans.nl"},
 ]
 description = "Cookiecutter template for a plain python project or library"
 readme = "README.rst"
@@ -12,9 +13,8 @@ classifiers = [
         "Environment :: Console",
         "Intended Audience :: Developers",
         "Natural Language :: English",
-        "License :: OSI Approved :: BSD License",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
@@ -27,9 +27,6 @@ dependencies = [
 [project.optional-dependencies]
 test = [
     "pytest"
-]
-release = [
-    "zest.releaser >= 8.0.0a1"
 ]
 
 [project.urls]
