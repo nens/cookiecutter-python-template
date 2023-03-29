@@ -1,5 +1,5 @@
 # Include docs in the root.
-include *.rst
+include *.md
 include LICENSE
 # Exclude byte-compiled code
 global-exclude __pycache__
