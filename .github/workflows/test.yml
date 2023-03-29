@@ -21,7 +21,7 @@ jobs:
       - name: Install python dependencies
         run: |
           python3 -m venv .
-          bin/pip install -r requirements.txt
+          bin/pip install -e .[test]
 
       - name: test
         run: bin/pytest
