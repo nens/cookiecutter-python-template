@@ -36,3 +36,10 @@ class BasicTest(unittest.TestCase):
         subprocess.run("%s -m venv ." % sys.executable, shell=True, check=True)
         subprocess.run("bin/pip install -e .[test]", shell=True, check=True)
         subprocess.run("bin/pytest", shell=True, check=True)
+
+    def test_lint_generated_project(self):
+        os.chdir("my-project")
+        subprocess.run("git init", shell=True, check=True)
+        subprocess.run("git add -A", shell=True, check=True)
+        subprocess.run("pre-commit install", shell=True, check=True)
+        subprocess.run("pre-commit run -av", shell=True, check=True)
