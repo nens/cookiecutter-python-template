@@ -26,6 +26,9 @@ Changelog for cookiecutter-python-template
 
 - Fixed master/main branch naming.
 
+- Testing the generated project with its generated pre-commit hooks to make
+  sure it is in tip-top shape right from the start.
+
 
 0.4 (2020-03-23)
 ----------------
