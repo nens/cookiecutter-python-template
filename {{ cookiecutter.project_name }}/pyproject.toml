@@ -22,6 +22,9 @@ test = [
 [project.urls]
 homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 
+[project.scripts]
+run-{{ cookiecutter.project_name }} = "{{ cookiecutter.package_name }}.scripts:main"
+
 [tool.setuptools]
 zip-safe = false
 
