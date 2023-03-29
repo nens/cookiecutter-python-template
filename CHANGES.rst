@@ -19,6 +19,13 @@ Changelog for cookiecutter-python-template
 - Added "Nelen & Schuurmans" and "info@nelen-schuurmans.nl" as author and email
   for the template itself.
 
+- Added pre-commit to ourselves for basic checks.
+
+- Added basic end-of-file and trailing-whitespace checks and so to the
+  generated project's pre-commit hooks.
+
+- Fixed master/main branch naming.
+
 
 0.4 (2020-03-23)
 ----------------
