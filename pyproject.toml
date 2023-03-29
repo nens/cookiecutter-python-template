@@ -27,7 +27,8 @@ dependencies = [
 [project.optional-dependencies]
 test = [
     "pre-commit",
-    "pytest"
+    "pytest",
+    "pyupgrade"
 ]
 
 [project.urls]

@@ -46,3 +46,13 @@ class BasicTest(unittest.TestCase):
         # a test dependency that way.
         subprocess.run("%s -m pre_commit install" % sys.executable, shell=True, check=True)
         subprocess.run("%s -m pre_commit run -av" % sys.executable, shell=True, check=True)
+
+    def test_pyupgrade_generated_project(self):
+        os.chdir("my-project")
+        subprocess.run("git init", shell=True, check=True)
+        subprocess.run("git add -A", shell=True, check=True)
+        try:
+            subprocess.run("%s -m pyupgrade --py38-plus my_project/*py" % sys.executable, shell=True, check=True)
+        except subprocess.CalledProcessError:
+            subprocess.run("git diff", shell=True, check=True)
+            raise
