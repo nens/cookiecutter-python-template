@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """TODO Docstring, used in the command line help text."""
 import argparse
 import logging
@@ -43,6 +42,6 @@ def main():  # pragma: no cover
     try:
         print("Call some function from another file here")
         # ^^^ TODO: pass in options.xyz where needed.
-    except:
+    except:  # noqa: E722
         logger.exception("An exception has occurred.")
         return 1

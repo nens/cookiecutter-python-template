@@ -26,7 +26,8 @@ homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 zip-safe = false
 
 [tool.setuptools.packages.find]
-include = ["{{ cookiecutter.package_name }}*"]  # package names should match these glob patterns (["*"] by default)
+include = ["{{ cookiecutter.package_name }}*"]
+# package names should match these glob patterns (["*"] by default)
 
 [tool.setuptools.dynamic]
 version = {attr = "{{ cookiecutter.package_name }}.__version__"}
@@ -34,6 +35,7 @@ version = {attr = "{{ cookiecutter.package_name }}.__version__"}
 [tool.isort]
 profile = "black"
 force_alphabetical_sort_within_sections = true
+force_single_line = true
 
 [tool.pytest.ini_options]
 norecursedirs=".venv data doc etc *.egg-info misc var build lib include"

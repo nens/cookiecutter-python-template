@@ -24,5 +24,6 @@ Development of this template itself
 Just do the regular::
 
   $ python3 -m venv .
-  $ bin/pip install -r requirements.txt
+  $ bin/pip install -e .[test]
+  $ pre-commit install
   $ bin/pytest

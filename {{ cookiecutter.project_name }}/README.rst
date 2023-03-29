@@ -48,14 +48,14 @@ Run the tests regularly with coverage::
 
 The tests are also run automatically `on "github actions"
 <https://githug.com/nens/{{ cookiecutter.project_name }}/actions>`_ for
-"master" and for pull requests. So don't just make a branch, but turn it into
+"main" and for pull requests. So don't just make a branch, but turn it into
 a pull request right away:
 
 - On your pull request page, you also automatically get the feedback from the
   automated tests.
 
-If you need a new dependency (like ``requests``), add it in ``setup.py`` in
-``install_requires``.
+If you need a new dependency (like ``requests``), add it in ``pyproject.toml`` in
+``dependencies``. And update your local install with::
 
   $ bin/pip install -e .[test]
 
@@ -69,13 +69,13 @@ Steps to do after generating with cookiecutter
   Note: "public" means "don't put customer data or sample data with real
   persons' addresses on github"!
 
-- Follow the steps you then see (from "git init" to "git push origin master")
+- Follow the steps you then see (from "git init" to "git push origin main")
   and your code will be online.
 
 - Go to
   https://github.com/nens/{{cookiecutter.project_name}}/settings/collaboration
   and add the teams with write access (you might have to ask someone with
-  admin rights to do it).
+  admin rights (like Reinout) to do it).
 
 - Update this readme. Use `.rst
   <http://www.sphinx-doc.org/en/stable/rest.html>`_ as the format.
