@@ -13,6 +13,12 @@ Changelog for cookiecutter-python-template
 
 - Hard code 'full_name' and 'email' to "Nelen & Schuurmans" and "info@nelen-schuurmans.nl".
 
+- Changed the template itself and the package it generates to use pyproject.toml
+  instead of setup.py as per PEP 621. Setup.cfg is retained for a few settings.
+
+- Added "Nelen & Schuurmans" and "info@nelen-schuurmans.nl" as author and email
+  for the template itself.
+
 
 0.4 (2020-03-23)
 ----------------
