@@ -1,17 +1,16 @@
-Changelog for cookiecutter-python-template
-==========================================
+# Changelog for cookiecutter-python-template
 
 
-0.5 (unreleased)
-----------------
+## 0.5 (unreleased)
 
 - Added pre-commit and 'lint' github action. Updated flake8 and isort settings.
 
 - Upgraded the 'test' github action.
 
-- Added a {{ package_name }}.__version__.
+- Added a `{{ package_name }}.__version__`.
 
-- Hard code 'full_name' and 'email' to "Nelen & Schuurmans" and "info@nelen-schuurmans.nl".
+- Hard code 'full_name' and 'email' to "Nelen & Schuurmans" and
+  "info@nelen-schuurmans.nl".
 
 - Changed the template itself and the package it generates to use pyproject.toml
   instead of setup.py as per PEP 621. Setup.cfg is retained for a few settings.
@@ -29,25 +28,24 @@ Changelog for cookiecutter-python-template
 - Testing the generated project with its generated pre-commit hooks to make
   sure it is in tip-top shape right from the start.
 
+- Swiched from `.rst` to markdown.
 
-0.4 (2020-03-23)
-----------------
 
-- Removed ``.travis.yml`` file from generated project.
+## 0.4 (2020-03-23)
+
+- Removed `.travis.yml` file from generated project.
 
 - Fixed github actions dirname.
 
 - Added proper secret-based coveralls.io setup.
 
 
-0.3 (2020-03-23)
-----------------
+## 0.3 (2020-03-23)
 
 - Moved from travis-ci to github actions.
 
 
-0.2 (2020-03-03)
-----------------
+## 0.2 (2020-03-03)
 
 - Switched from pipenv to plain virtualenv+pip.
 
@@ -55,8 +53,7 @@ Changelog for cookiecutter-python-template
   would really actually run the tests :-)
 
 
-0.1 (2019-01-16)
-----------------
+## 0.1 (2019-01-16)
 
 - Started the project.
 
