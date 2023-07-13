@@ -43,4 +43,4 @@ addopts = "tests/"
 
 [tool.zest-releaser]
 # We don't need releasing as a package.
-release = "no"
+release = false
