@@ -41,6 +41,6 @@ packages = []
 norecursedirs="{{ cookiecutter.project_name }}"
 addopts = "tests/"
 
-[tool.zest.releaser]
+[tool.zest-releaser]
 # We don't need releasing as a package.
 release = "no"
