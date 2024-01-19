@@ -45,6 +45,9 @@ addopts = "tests/"
 # We don't need releasing as a package.
 release = false
 
+[tool.ruff]
+exclude = ["*cookiecutter.project_name*"]
+
 [tool.pyright]
 include = "test"
 venvPath = "."
