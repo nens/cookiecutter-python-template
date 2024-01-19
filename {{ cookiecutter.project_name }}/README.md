@@ -18,16 +18,18 @@ We can be installed with:
 We use python's build-in "virtualenv" to get a nice isolated
 directory. You only need to run this once:
 
-    $ python3 -m venv .
+    $ python3 -m venv venv
 
-A virtualenv puts its commands in the `bin` directory. So `bin/pip`,
-`bin/pytest`, etc. Set up the dependencies like this:
+A virtualenv puts its commands in the `venv/bin` directory. So
+`venv/bin/pip`, `venv/bin/pytest`, etc. (You can also activate the
+virtualenv instead of explicitly passing `venv/bin/...`). Set up the
+dependencies like this:
 
-    $ bin/pip install -e .[test]
+    $ venv/bin/pip install -e .[test]
 
 There will be a script you can run like this:
 
-    $ bin/run-{{ cookiecutter.project_name }}
+    $ venv/bin/run-{{ cookiecutter.project_name }}
 
 It runs the `main()` function in `[{{ cookiecutter.project_name }}/scripts.py`,
 adjust that if necessary. The script is configured in
@@ -41,7 +43,7 @@ it on this project:
 
 Run the tests regularly with coverage:
 
-    $ bin/pytest --cov
+    $ venv/bin/pytest --cov
 
 The tests are also run automatically [on "github
 actions"](https://github.com/nens/{{ cookiecutter.project_name }}/actions) for
@@ -52,7 +54,7 @@ the feedback from the automated tests.
 If you need a new dependency (like `requests`), add it in
 `pyproject.toml` in `dependencies`. And update your local install with:
 
-    $ bin/pip install -e .[test]
+    $ venv/bin/pip install -e .[test]
 
 
 ## Steps to do after generating with cookiecutter
