@@ -44,3 +44,8 @@ addopts = "tests/"
 [tool.zest-releaser]
 # We don't need releasing as a package.
 release = false
+
+[tool.pyright]
+include = "test"
+venvPath = "."
+venv = "venv"
