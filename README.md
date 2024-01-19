@@ -19,7 +19,7 @@ Run the following command and answer the questions:
 
 Just do the regular:
 
-    $ python3 -m venv .
-    $ bin/pip install -e .[test]
+    $ python3 -m venv venv
+    $ venv/bin/pip install -e .[test]
     $ pre-commit install
-    $ bin/pytest
+    $ venv/bin/pytest
