@@ -15,17 +15,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # 2019
-          - python: 3.8
-            pins: ""
-          # 2021
-          - python: 3.9
-            pins: ""
           # 2022
           - python: "3.10"
             pins: ""
-          # current
+          # 2023
           - python: "3.11"
+            pins: ""
+          # 2023
+          - python: "3.12"
             pins: ""
 
     steps:
