@@ -3,25 +3,26 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-toml
         pass_filenames: false
       - id: check-added-large-files
-  - repo: https://github.com/pycqa/isort
-    rev: '5.12.0'
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.1.13
     hooks:
-      - id: isort
-        exclude: '{{ cookiecutter.project_name }}'
-  - repo: https://github.com/psf/black
-    rev: '23.1.0'
-    hooks:
-      - id: black
-        exclude: '{{ cookiecutter.project_name }}'
-  - repo: https://github.com/pycqa/flake8
-    rev: '6.0.0'
-    hooks:
-      - id: flake8
-        exclude: '{{ cookiecutter.project_name }}'
+      # Run the linter.
+      - id: ruff
+        args: ["--fix", "--config", "pyproject.toml"]
+      # Run the formatter.
+      - id: ruff-format
+        # The "--config pyproject.toml" here and above prevent ruff
+        # from looking at the pyproject.toml in the {{ .... }} dir as
+        # a possible config file. Ruff on the commandline ignores it
+        # just fine, but when passed explicitly as filename by git it
+        # still gets read.
+        # See https://github.com/astral-sh/ruff/issues/9585
+        args: ["--config", "pyproject.toml"]

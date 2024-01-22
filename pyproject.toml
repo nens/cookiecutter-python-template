@@ -44,3 +44,15 @@ addopts = "tests/"
 [tool.zest-releaser]
 # We don't need releasing as a package.
 release = false
+
+[tool.ruff]
+exclude = ["*cookiecutter.project_name*"]
+
+[tool.ruff.lint]
+# Default select: ["E4", "E7", "E9", "F"]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
+
+[tool.pyright]
+include = "test"
+venvPath = "."
+venv = "venv"
