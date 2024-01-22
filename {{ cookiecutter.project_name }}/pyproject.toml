@@ -50,7 +50,7 @@ target-version = "py310"
 
 [tool.ruff.lint]
 # Default select: ["E4", "E7", "E9", "F"]
-select = ["E4", "E7", "E9", "F", "I", "UP"]
+select = ["E4", "E7", "E9", "F", "I", "UP", "C901"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["{{ cookiecutter.package_name }}"]
