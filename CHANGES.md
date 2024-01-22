@@ -4,7 +4,22 @@
 ## 0.6 (unreleased)
 
 
-- Nothing changed yet.
+- Requiring python 3.10 in the generated project.
+
+- Moved to ruff: this includes black, isort, pyflakes and
+  pyupgrade. Including configuration that enables it.
+
+- Setup.cfg is gone now, everything is in pyproject.toml.
+
+- Documenting that you should generate the virtualenv in the `./venv`
+  dir instead of directly in `.`, this matches the python.org docs.
+
+- Added initial configuration for pyright/pylance, this helps vscode
+  and other LSP-using editors. (partially helped by the abovementioned
+  `./venv` change).
+
+- Updated github actions and added the dependabot "github action
+  autoupdater".
 
 
 ## 0.5 (2023-03-29)
