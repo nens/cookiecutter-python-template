@@ -40,7 +40,7 @@ norecursedirs="venv .venv data doc etc *.egg-info misc var build lib include"
 python_files = "test_*.py"
 testpaths = "{{ cookiecutter.package_name }}"
 
-[tool.zestreleaser]
+[tool.zest-releaser]
 release = false
 python-file-with-version = "{{ cookiecutter.package_name }}/__init__.py"
 
