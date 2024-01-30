@@ -70,7 +70,7 @@ If you need a new dependency (like `requests`), add it in
   and your code will be online.
 
 - Go to
-  https://github.com/nens/>{{ cookiecutter.project_name }}/settings/collaboration
+  https://github.com/nens/{{ cookiecutter.project_name }}/settings/collaboration
   and add the teams with write access (you might have to ask someone with
   admin rights (like Reinout) to do it).
 
