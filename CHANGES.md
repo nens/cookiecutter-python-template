@@ -24,6 +24,8 @@
 - Removed commandline script from the generated project: in many cases it is not needed
   and it looks neater if it is missing. Let's keep it reasonably clean.
 
+- Added `.editorconfig` file with editor defaults.
+
 
 ## 0.5 (2023-03-29)
 
