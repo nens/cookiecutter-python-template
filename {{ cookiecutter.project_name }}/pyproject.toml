@@ -29,11 +29,8 @@ run-{{ cookiecutter.project_name }} = "{{ cookiecutter.package_name }}.scripts:m
 requires = ["setuptools>=68.2"]
 
 [tool.setuptools]
+packages = ["{{ cookiecutter.package_name }}"]
 zip-safe = false
-
-[tool.setuptools.packages.find]
-include = ["{{ cookiecutter.package_name }}*"]
-# package names should match these glob patterns (["*"] by default)
 
 [tool.setuptools.dynamic]
 version = {attr = "{{ cookiecutter.package_name }}.__version__"}
