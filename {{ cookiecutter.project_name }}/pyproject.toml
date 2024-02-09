@@ -25,6 +25,9 @@ homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 [project.scripts]
 run-{{ cookiecutter.project_name }} = "{{ cookiecutter.package_name }}.scripts:main"
 
+[build-system]
+requires = ["setuptools>=68.2"]
+
 [tool.setuptools]
 zip-safe = false
 
