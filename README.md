@@ -17,9 +17,9 @@ Run the following command and answer the questions:
 
 ## Development of this template itself
 
-Just do the regular:
+See [DEVELOPMENT.md](./DEVELOPMENT.md) for the basics.
 
-    $ python3 -m venv venv
-    $ venv/bin/pip install -e .[test]
-    $ pre-commit install
-    $ venv/bin/pytest
+Afterwards:
+
+    $ pre-commit run --all
+    $ pytest
