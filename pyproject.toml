@@ -28,6 +28,8 @@ requires-python = ">=3.11" # Suggested by nens-meta
 [project.optional-dependencies]
 test = [
     "pytest",
+    "pre-commit",
+    "pyupgrade",
 ]
 
 [project.urls]
