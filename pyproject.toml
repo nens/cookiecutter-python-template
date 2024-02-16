@@ -27,10 +27,8 @@ requires-python = ">=3.11" # Suggested by nens-meta
 
 [project.optional-dependencies]
 test = [
-    "pre-commit",
     "pytest",
-    "pyupgrade"
-] # pytest added by nens-meta
+]
 
 [project.urls]
 homepage = "https://github.com/nens/cookiecutter-python-template"
