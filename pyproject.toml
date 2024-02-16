@@ -23,7 +23,7 @@ dependencies = [
     "cookiecutter"
 ]
 dynamic = ["version"] # Set by nens-meta
-requires-python = ">=3.11" # Suggested by nens-meta
+requires-python = ">=3.10" # Suggested by nens-meta
 
 [project.optional-dependencies]
 test = [
