@@ -1,3 +1,6 @@
+[build-system] # Whole section managed by nens-meta
+requires = ["setuptools>=69"]
+
 [project]
 name = "cookiecutter-python-template" # Set by nens-meta
 authors = [
@@ -20,7 +23,7 @@ classifiers = [
         "Topic :: Software Development",
     ]
 dependencies = [
-    "cookiecutter"
+    "cookiecutter",  # Not a real code dependency, but we need it.
 ]
 dynamic = ["version"] # Set by nens-meta
 requires-python = ">=3.10" # Suggested by nens-meta
@@ -67,5 +70,6 @@ source = ["cookiecutter_python_template"]
 [tool.coverage.report] # Whole section managed by nens-meta
 show_missing = true
 skip_empty = true
-[build-system] # Whole section managed by nens-meta
-requires = ["setuptools>=69"]
+
+[tool.dependencychecker]
+ignore-packages = ["cookiecutter", "pre-commit", "pytest", "pyupgrade"]
