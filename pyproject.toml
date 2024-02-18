@@ -1,5 +1,5 @@
 [build-system] # Whole section managed by nens-meta
-requires = ["setuptools>=69"]
+requires = ["setuptools>=69"] # Suggested by nens-meta
 
 [project]
 name = "cookiecutter-python-template" # Set by nens-meta
@@ -39,14 +39,14 @@ test = [
 homepage = "https://github.com/nens/cookiecutter-python-template"
 
 [tool.setuptools] # Whole section managed by nens-meta
-packages = ["cookiecutter_python_template"]
+packages = ["cookiecutter_python_template"] # Set by nens-meta
 zip-safe = false
 
 [tool.setuptools.dynamic] # Whole section managed by nens-meta
 version = {attr = "cookiecutter_python_template.__version__"}
 [tool.pytest.ini_options] # Whole section managed by nens-meta
 log_level = "DEBUG"
-testpaths = ["cookiecutter_python_template"]
+testpaths = ["cookiecutter_python_template"] # Set by nens-meta
 
 [tool.zest-releaser]
 # We don't need releasing as a package.
@@ -65,9 +65,9 @@ venvPath = "." # Set by nens-meta
 venv = ".venv" # Set by nens-meta
 
 [tool.coverage.run] # Whole section managed by nens-meta
-source = ["cookiecutter_python_template"]
+source = ["cookiecutter_python_template"] # Set by nens-meta
 
-[tool.coverage.report] # Whole section managed by nens-meta
+[tool.coverage.report] # show_missing and skip_empty set by nens-meta
 show_missing = true
 skip_empty = true
 
