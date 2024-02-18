@@ -17,9 +17,4 @@ Run the following command and answer the questions:
 
 ## Development of this template itself
 
-See [DEVELOPMENT.md](./DEVELOPMENT.md) for the basics.
-
-Afterwards:
-
-    $ pre-commit run --all
-    $ pytest
+See https://nens-meta.readthedocs.io/en/latest/usage.html for setup instructions.
