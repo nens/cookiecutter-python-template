@@ -37,19 +37,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: $\{\{ matrix.python-version }}
       - name: Cache packages
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('tox.ini') }}
+          key: $\{\{ runner.os }}-pip-$\{\{ matrix.python-version }}-$\{\{ hashFiles('tox.ini') }}
           restore-keys: |
-            ${{ runner.os }}-pip-${{ matrix.python-version }}-
-            ${{ runner.os }}-pip-
+            $\{\{ runner.os }}-pip-$\{\{ matrix.python-version }}-
+            $\{\{ runner.os }}-pip-
       - name: Install dependencies
         run: python -m pip install tox
-      - name: Actually run ${{ matrix.tox-env }}
+      - name: Actually run $\{\{ matrix.tox-env }}
         run: |
             touch for_step_summary.md
-            tox -e ${{ matrix.tox-env }}
+            tox -e $\{\{ matrix.tox-env }}
             cat for_step_summary.md >> $GITHUB_STEP_SUMMARY
