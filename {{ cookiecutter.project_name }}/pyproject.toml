@@ -1,3 +1,6 @@
+[build-system]
+requires = ["setuptools>=69"]
+
 [project]
 name = "{{cookiecutter.project_name}}"
 description = "{{cookiecutter.project_short_description}}"
@@ -22,9 +25,6 @@ test = [
 [project.urls]
 homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 
-[build-system]
-requires = ["setuptools>=68.2"]
-
 [tool.setuptools]
 packages = ["{{ cookiecutter.package_name }}"]
 zip-safe = false
@@ -33,9 +33,8 @@ zip-safe = false
 version = {attr = "{{ cookiecutter.package_name }}.__version__"}
 
 [tool.pytest.ini_options]
-norecursedirs="venv .venv data doc etc *.egg-info misc var build lib include"
-python_files = "test_*.py"
-testpaths = "{{ cookiecutter.package_name }}"
+log_level = "DEBUG"
+testpaths = ["cookiecutter_python_template"]
 
 [tool.zest-releaser]
 release = false
@@ -46,16 +45,19 @@ python-file-with-version = "{{ cookiecutter.package_name }}/__init__.py"
 target-version = "py310"
 
 [tool.ruff.lint]
-# Default select: ["E4", "E7", "E9", "F"]
-select = ["E4", "E7", "E9", "F", "I", "UP", "C901"]
+select = ["E4", "E7", "E9", "F", "I"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["{{ cookiecutter.package_name }}"]
 
 [tool.pyright]
-# Pyright/pylance/vscode configuration.
-# Note: if you want a different setup, you can overwrite this with a
-# "pyrightconfig.json", which takes precedence.
-include = "{{ cookiecutter.package_name }}"
+include = ["{{ cookiecutter.package_name }}"]
 venvPath = "."
-venv = "venv"
+venv = ".venv"
+
+[tool.coverage.run]
+source = ["{{ cookiecutter.package_name }}"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
