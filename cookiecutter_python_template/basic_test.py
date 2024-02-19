@@ -31,9 +31,9 @@ class BasicTest(unittest.TestCase):
         # We have to pass a full string instead of clean splitted ([...])
         # arguments as otherwise calling python from within our own python
         # interferes too much.
-        subprocess.run("%s -m venv ." % sys.executable, shell=True, check=True)
-        subprocess.run("bin/pip install -e .[test]", shell=True, check=True)
-        subprocess.run("bin/pytest", shell=True, check=True)
+        subprocess.run("%s -m venv .venv" % sys.executable, shell=True, check=True)
+        subprocess.run(".venv/bin/pip install -e .[test]", shell=True, check=True)
+        subprocess.run(".venv/bin/pytest", shell=True, check=True)
 
     def test_lint_generated_project(self):
         os.chdir("my-project")
@@ -42,9 +42,6 @@ class BasicTest(unittest.TestCase):
         # "sys.executable -m pre_commit" is the same as calling "pre-commit",
         # but in a way that's handier for testing as we can add pre-commit as
         # a test dependency that way.
-        subprocess.run(
-            "%s -m pre_commit install" % sys.executable, shell=True, check=True
-        )
         subprocess.run(
             "%s -m pre_commit run -av" % sys.executable, shell=True, check=True
         )
