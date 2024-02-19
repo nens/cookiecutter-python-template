@@ -19,7 +19,6 @@ dynamic = ["version"]
 [project.optional-dependencies]
 test = [
     "pytest",
-    "pytest-cov"
 ]
 
 [project.urls]
