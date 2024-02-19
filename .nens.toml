@@ -3,6 +3,6 @@ leave_alone = true
 
 [meta]
 is_python_project = true
-meta_version = "0.2.dev0" # Set by nens-meta
+meta_version = "0.3.dev0" # Set by nens-meta
 project_name = "cookiecutter-python-template" # Suggested by nens-meta
 package_name = "cookiecutter_python_template" # Suggested by nens-meta
