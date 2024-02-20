@@ -1,6 +1,3 @@
-[pre-commit-config]
-leave_alone = true
-
 [meta]
 is_python_project = true
 meta_version = "0.3.dev0" # Set by nens-meta
