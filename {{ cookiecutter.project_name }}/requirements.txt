@@ -1,6 +1,11 @@
 # Install ourselves, including test dependencies.
 -e .[test]
 
+# Tox is a tool to run this project. ruff is handled through tox, but also easy
+# to have installed.
+tox
+ruff
+
 # If your python code uses requests, add "requests" to `[project] -> dependencies`
 # in `pyproject.toml` instead of adding it here. You can use this file for some
 # development tools or for explicitly pinning dependencies.
