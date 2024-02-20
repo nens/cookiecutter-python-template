@@ -1,8 +1,8 @@
-[build-system] # Whole section managed by nens-meta
-requires = ["setuptools>=69"] # Suggested by nens-meta
+[build-system]
+requires = ["setuptools>=69"]
 
 [project]
-name = "cookiecutter-python-template" # Set by nens-meta
+name = "cookiecutter-python-template"
 authors = [
     {name = "Reinout van Rees", email = "reinout@vanrees.org"},
     {name = "Nelen & Schuurmans", email = "info@nelen-schuurmans.nl"},
@@ -23,10 +23,10 @@ classifiers = [
         "Topic :: Software Development",
     ]
 dependencies = [
-    "cookiecutter",  # Not a real code dependency, but we need it.
+    "cookiecutter",
 ]
-dynamic = ["version"] # Set by nens-meta
-requires-python = ">=3.10" # Suggested by nens-meta
+dynamic = ["version"]
+requires-python = ">=3.10"
 
 [project.optional-dependencies]
 test = [
@@ -38,36 +38,35 @@ test = [
 [project.urls]
 homepage = "https://github.com/nens/cookiecutter-python-template"
 
-[tool.setuptools] # Whole section managed by nens-meta
-packages = ["cookiecutter_python_template"] # Set by nens-meta
+[tool.setuptools]
+packages = ["cookiecutter_python_template"]
 zip-safe = false
 
-[tool.setuptools.dynamic] # Whole section managed by nens-meta
+[tool.setuptools.dynamic]
 version = {attr = "cookiecutter_python_template.__version__"}
-[tool.pytest.ini_options] # Whole section managed by nens-meta
+[tool.pytest.ini_options]
 log_level = "DEBUG"
-testpaths = ["cookiecutter_python_template"] # Set by nens-meta
+testpaths = ["cookiecutter_python_template"]
 
 [tool.zest-releaser]
-# We don't need releasing as a package.
 release = false
 
-[tool.ruff] # Required: target-version
+[tool.ruff]
 target-version = "py311"
 extend-exclude = ["*cookiecutter.project_name*"]
 
-[tool.ruff.lint] # Required: select
+[tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "I"]
 
 [tool.pyright]
-include = ["cookiecutter_python_template"] # Set by nens-meta
-venvPath = "." # Set by nens-meta
-venv = ".venv" # Set by nens-meta
+include = ["cookiecutter_python_template"]
+venvPath = "."
+venv = ".venv"
 
-[tool.coverage.run] # Whole section managed by nens-meta
-source = ["cookiecutter_python_template"] # Set by nens-meta
+[tool.coverage.run]
+source = ["cookiecutter_python_template"]
 
-[tool.coverage.report] # show_missing and skip_empty set by nens-meta
+[tool.coverage.report]
 show_missing = true
 skip_empty = true
 
