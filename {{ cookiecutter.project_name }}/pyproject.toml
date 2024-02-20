@@ -35,7 +35,7 @@ version = {attr = "{{ cookiecutter.package_name }}.__version__"}
 
 [tool.pytest.ini_options]
 log_level = "DEBUG"
-testpaths = ["cookiecutter_python_template"]
+testpaths = ["{{ cookiecutter.package_name }}"]
 
 [tool.zest-releaser]
 release = false
