@@ -26,15 +26,6 @@ Usage, etc.
 - Remove this section as you've done it all :-)
 
 
-## Installation
-
-We can be installed with:
-
-    $ pip install {{ cookiecutter.project_name }}
-
-(TODO: after the first release has been made)
-
-
 ## Development installation of this project itself
 
 We use python's build-in "virtualenv" to get a nice isolated
