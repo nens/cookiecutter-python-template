@@ -17,9 +17,4 @@ Run the following command and answer the questions:
 
 ## Development of this template itself
 
-Just do the regular:
-
-    $ python3 -m venv venv
-    $ venv/bin/pip install -e .[test]
-    $ pre-commit install
-    $ venv/bin/pytest
+See https://nens-meta.readthedocs.io/en/latest/usage.html for setup instructions.

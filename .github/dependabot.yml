@@ -1,3 +1,4 @@
+# NENS_META_LEAVE_ALONE
 version: 2
 updates:
 
@@ -6,3 +7,5 @@ updates:
     schedule:
       # Check for updates to GitHub Actions every week
       interval: "weekly"
+    assignees:
+      - "reinout"
