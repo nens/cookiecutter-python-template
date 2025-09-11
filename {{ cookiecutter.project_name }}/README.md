@@ -4,59 +4,27 @@ Introduction
 
 Usage, etc.
 
-## Installation
 
-We can be installed with:
+## Development on this project itself
 
-    $ pip install {{ cookiecutter.project_name }}
+See [nens-meta's documentation](https://nens-meta.readthedocs.io) for an explanation of the config files like `.editorconfig` and tools like `pre-commit` and `uv`.
 
-(TODO: after the first release has been made)
+The standard commands apply:
 
+    $ uv sync
+    $ uv run pytest
+    $ uv run python  # You can also activate the virtualenv in .venv
+    $ pre-commit run --all  # You can also do 'pre-commit install'
+    $ uv add some-dependency
 
-## Development installation of this project itself
+`uv` replaces pip/venv/requirement.txt/pip-tools. `pre-commit` does basic formatting.
 
-See [nens-meta's documentation](https://nens-meta.readthedocs.io) for an explanation of the config files like `.editorconfig` and tools like `pre-commit`.
-
-We use python's build-in "virtualenv" to get a nice isolated
-directory. You only need to run this once:
-
-    $ python3 -m venv venv
-
-A virtualenv puts its commands in the `venv/bin` directory. So
-`venv/bin/pip`, `venv/bin/pytest`, etc. (You can also activate the
-virtualenv instead of explicitly passing `venv/bin/...`). Set up the
-dependencies like this:
-
-    $ venv/bin/pip install -e .[test]
-
-There will be a script you can run like this:
-
-    $ venv/bin/run-{{ cookiecutter.project_name }}
-
-It runs the `main()` function in `[{{ cookiecutter.project_name }}/scripts.py`,
-adjust that if necessary. The script is configured in
-`TODO, MISSING NOW` (see `entry_points`).
-
-In order to get nicely formatted python files without having to spend
-manual work on it, get [pre-commit](https://pre-commit.com/) and install
-it on this project:
-
-    $ pre-commit install
-
-Run the tests regularly with coverage:
-
-    $ venv/bin/pytest --cov
-
-The tests are also run automatically [on "github
-actions"](https://github.com/nens/{{ cookiecutter.project_name }}/actions) for
-"main" and for pull requests. So don't just make a branch, but turn it into a
-pull request right away. On your pull request page, you also automatically get
-the feedback from the automated tests.
+The tests and pre-commit are also run automatically [on "github actions"](https://github.com/nens/{{ cookiecutter.project_name }}/actions) for "main" and for pull requests. So don't just make a branch, but turn it into a pull request right away. On your pull request page, you also automatically get the feedback from the automated tests.
 
 If you need a new dependency (like `requests`), add it in
-`pyproject.toml` in `dependencies`. And update your local install with:
+`pyproject.toml` in `dependencies`:
 
-    $ venv/bin/pip install -e .[test]
+    $ uv add requests
 
 
 ## Steps to do after generating with cookiecutter
