@@ -31,7 +31,7 @@ class BasicTest(unittest.TestCase):
         # We have to pass a full string instead of clean splitted ([...])
         # arguments as otherwise calling python from within our own python
         # interferes too much.
-        subprocess.run("%s -m venv ." % sys.executable, shell=True, check=True)
+        subprocess.run(f"{sys.executable} -m venv .", shell=True, check=True)
         subprocess.run("bin/pip install -e .[test]", shell=True, check=True)
         subprocess.run("bin/pytest", shell=True, check=True)
 
@@ -43,10 +43,10 @@ class BasicTest(unittest.TestCase):
         # but in a way that's handier for testing as we can add pre-commit as
         # a test dependency that way.
         subprocess.run(
-            "%s -m pre_commit install" % sys.executable, shell=True, check=True
+            f"{sys.executable} -m pre_commit install", shell=True, check=True
         )
         subprocess.run(
-            "%s -m pre_commit run -av" % sys.executable, shell=True, check=True
+            f"{sys.executable} -m pre_commit run -av", shell=True, check=True
         )
 
     def test_pyupgrade_generated_project(self):
@@ -55,7 +55,7 @@ class BasicTest(unittest.TestCase):
         subprocess.run("git add -A", shell=True, check=True)
         try:
             subprocess.run(
-                "%s -m pyupgrade --py38-plus my_project/*py" % sys.executable,
+                f"{sys.executable} -m pyupgrade --py38-plus my_project/*py",
                 shell=True,
                 check=True,
             )

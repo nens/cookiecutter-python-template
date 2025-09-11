@@ -24,13 +24,6 @@ dependencies = [
     "cookiecutter"
 ]
 
-[project.optional-dependencies]
-test = [
-    "pre-commit",
-    "pytest",
-    "pyupgrade"
-]
-
 [project.urls]
 homepage = "https://github.com/nens/cookiecutter-python-template"
 
