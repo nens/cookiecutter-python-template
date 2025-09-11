@@ -1,7 +1,7 @@
 [meta]
 uses_python = true
 uses_ansible = false
-meta_version = "0.9.dev0"
+meta_version = "1.1.dev0"
 project_name = "cookiecutter-python-template"
 
 [meta_workflow]

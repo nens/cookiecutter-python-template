@@ -15,6 +15,8 @@ We can be installed with:
 
 ## Development installation of this project itself
 
+See [nens-meta's documentation](https://nens-meta.readthedocs.io) for an explanation of the config files like `.editorconfig` and tools like `pre-commit`.
+
 We use python's build-in "virtualenv" to get a nice isolated
 directory. You only need to run this once:
 

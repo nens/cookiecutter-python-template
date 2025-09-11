@@ -22,3 +22,5 @@ Just do the regular:
     $ uv sync
     $ uv run pytest
     $ pre-commit run --all
+
+The basic setup of [nens-meta](https://nens-meta.readthedocs.io/) should be used in this cookiecutter template, of course. You *can* run `uvx nens-meta` inside the `{{ cookiecutter.project_name }}/` directory, nens-meta is tweaked to work in such a directory.
