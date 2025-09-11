@@ -27,9 +27,11 @@ class BasicTest(unittest.TestCase):
 
     def test_generated_project(self):
         os.chdir("my-project")
-        # We have to pass a full string instead of clean splitted ([...])
-        # arguments as otherwise calling python from within our own python
-        # interferes too much.
+        if "VIRTUAL_ENV" in os.environ:
+            os.environ.pop("VIRTUAL_ENV")
+        os.environ.setdefault("VIRTUAL_ENV", os.path.join("./.venv"))
+        # ^^^ uv runs our own "uv run test", so it knows its own venv exists and
+        # complains about starting another one. So we're being explicit about it.
         subprocess.run("uv sync", shell=True, check=True)
         subprocess.run("uv run pytest", shell=True, check=True)
 
@@ -40,4 +42,8 @@ class BasicTest(unittest.TestCase):
         # "sys.executable -m pre_commit" is the same as calling "pre-commit",
         # but in a way that's handier for testing as we can add pre-commit as
         # a test dependency that way.
-        subprocess.run("uv run pre-commit run --all", shell=True, check=True)
+        try:
+            subprocess.run("uv run pre-commit run --all", shell=True, check=True)
+        except subprocess.CalledProcessError:
+            subprocess.run("git diff", shell=True)
+            raise
