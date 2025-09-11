@@ -3,3 +3,9 @@ uses_python = true
 uses_ansible = false
 meta_version = "0.9.dev0"
 project_name = "cookiecutter-python-template"
+
+[meta_workflow]
+# Python version to use for linting and so
+python_version = '3.12'
+# Whether to run pytest in the workflow
+run_pytest = true

@@ -32,5 +32,8 @@ jobs:
         uses: astral-sh/setup-uv@v6
       - name: Install python project
         run: uv sync
+      - name: Run pytest
+        run: uv run pytest
+        # Use 'addopts' in [tool.pytest.ini_options] to add command line args.
 
 ### Extra lines below are preserved ###
