@@ -47,3 +47,7 @@ class BasicTest(unittest.TestCase):
         except subprocess.CalledProcessError:
             subprocess.run("git diff", shell=True)
             raise
+
+    def test_sdist_generation(self):
+        os.chdir("my-project")
+        subprocess.run("uv build", shell=True, check=True)

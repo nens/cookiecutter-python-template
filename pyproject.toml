@@ -6,7 +6,7 @@ authors = [
 ]
 description = "Cookiecutter template for a plain python project or library"
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 version = "0.6.dev0"
 requires-python = ">=3.12"
 classifiers = [
@@ -14,7 +14,6 @@ classifiers = [
         "Environment :: Console",
         "Intended Audience :: Developers",
         "Natural Language :: English",
-        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: Implementation :: CPython",
