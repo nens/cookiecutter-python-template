@@ -1,28 +1,25 @@
+# See https://nens-meta.readthedocs.io/en/latest/config-files.html
 default_language_version:
   python: python3
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+      - id: check-yaml
+        args: [--allow-multiple-documents]
       - id: check-toml
-        pass_filenames: false
       - id: check-added-large-files
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: v0.1.13
+    rev: v0.12.12
     hooks:
       # Run the linter.
       - id: ruff
-        args: ["--fix", "--config", "pyproject.toml"]
+        args: ["--fix"]
       # Run the formatter.
       - id: ruff-format
-        # The "--config pyproject.toml" here and above prevent ruff
-        # from looking at the pyproject.toml in the {{ .... }} dir as
-        # a possible config file. Ruff on the commandline ignores it
-        # just fine, but when passed explicitly as filename by git it
-        # still gets read.
-        # See https://github.com/astral-sh/ruff/issues/9585
-        args: ["--config", "pyproject.toml"]
+
+### Extra lines below are preserved ###
