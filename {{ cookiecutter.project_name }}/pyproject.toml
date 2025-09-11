@@ -22,9 +22,6 @@ test = [
 [project.urls]
 homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 
-[project.scripts]
-run-{{ cookiecutter.project_name }} = "{{ cookiecutter.package_name }}.scripts:main"
-
 [tool.setuptools]
 zip-safe = false
 
@@ -62,3 +59,6 @@ known-first-party = ["{{ cookiecutter.package_name }}"]
 include = "{{ cookiecutter.package_name }}"
 venvPath = "."
 venv = "venv"
+
+[dependency-groups]
+dev = ["pytest>=8.4.2", "pytest-cov>=6.3.0", "pytest-sugar>=1.1.1"]
