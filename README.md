@@ -19,7 +19,6 @@ Run the following command and answer the questions:
 
 Just do the regular:
 
-    $ python3 -m venv venv
-    $ venv/bin/pip install -e .[test]
-    $ pre-commit install
-    $ venv/bin/pytest
+    $ uv sync
+    $ uv run pytest
+    $ pre-commit run --all

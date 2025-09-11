@@ -52,4 +52,4 @@ venvPath = "."
 venv = "venv"
 
 [dependency-groups]
-dev = ["pytest>=8.4.2", "pytest-cov>=6.3.0", "pytest-sugar>=1.1.1"]
+dev = ["pytest>=8.4.2", "pytest-sugar>=1.1.1"]
