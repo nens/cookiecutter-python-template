@@ -1,3 +1,4 @@
+# NENS_META_LEAVE_ALONE
 # See https://nens-meta.readthedocs.io/en/latest/config-files.html
 default_language_version:
   python: python3
@@ -18,8 +19,13 @@ repos:
     hooks:
       # Run the linter.
       - id: ruff
-        args: ["--fix"]
+        args: ["--fix", "--config", "pyproject.toml"]
       # Run the formatter.
       - id: ruff-format
-
-### Extra lines below are preserved ###
+        # The "--config pyproject.toml" here and above prevent ruff
+        # from looking at the pyproject.toml in the {{ .... }} dir as
+        # a possible config file. Ruff on the commandline ignores it
+        # just fine, but when passed explicitly as filename by git it
+        # still gets read.
+        # See https://github.com/astral-sh/ruff/issues/9585
+        args: ["--config", "pyproject.toml"]
