@@ -1,52 +1,35 @@
+# See https://nens-meta.readthedocs.io/en/latest/config-files.html
+[build-system]
+requires = ["setuptools>=80", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "{{cookiecutter.project_name}}"
+version = "0.1.dev0"
 description = "{{cookiecutter.project_short_description}}"
 authors = [
     {name = "Nelen & Schuurmans", email = "info@nelen-schuurmans.nl"},
 ]
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 # Get classifier strings from http://www.python.org/pypi?%3Aaction=list_classifiers
 classifiers = ["Programming Language :: Python"]
 keywords = []
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = []
-dynamic = ["version"]
-
-[project.optional-dependencies]
-test = [
-    "pytest",
-    "pytest-cov"
-]
 
 [project.urls]
 homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 
-[project.scripts]
-run-{{ cookiecutter.project_name }} = "{{ cookiecutter.package_name }}.scripts:main"
-
-[tool.setuptools]
-zip-safe = false
-
-[tool.setuptools.packages.find]
-include = ["{{ cookiecutter.package_name }}*"]
-# package names should match these glob patterns (["*"] by default)
-
-[tool.setuptools.dynamic]
-version = {attr = "{{ cookiecutter.package_name }}.__version__"}
-
 [tool.pytest.ini_options]
-norecursedirs="venv .venv data doc etc *.egg-info misc var build lib include"
-python_files = "test_*.py"
-testpaths = "{{ cookiecutter.package_name }}"
+addopts = "--cov --cov-fail-under=80"
 
 [tool.zest-releaser]
 release = false
-python-file-with-version = "{{ cookiecutter.package_name }}/__init__.py"
 
 [tool.ruff]
 # See https://docs.astral.sh/ruff/configuration/ for defaults.
-target-version = "py310"
+target-version = "py312"
 
 [tool.ruff.lint]
 # Default select: ["E4", "E7", "E9", "F"]
@@ -59,6 +42,9 @@ known-first-party = ["{{ cookiecutter.package_name }}"]
 # Pyright/pylance/vscode configuration.
 # Note: if you want a different setup, you can overwrite this with a
 # "pyrightconfig.json", which takes precedence.
-include = "{{ cookiecutter.package_name }}"
+include = "src"
 venvPath = "."
-venv = "venv"
+venv = ".venv"
+
+[dependency-groups]
+dev = ["pytest>=8.4.2", "pytest-cov>=6.3.0", "pytest-sugar>=1.1.1"]

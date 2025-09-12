@@ -1,9 +1,43 @@
+# See https://nens-meta.readthedocs.io/en/latest/config-files.html
+
+# Pyc/pyo/backup files.
+*.py[co]
 *~
+*.swp
 *.pyc
-.idea
+.DS_Store
+
+# Packages/buildout/pip/pipenv
+*.egg
 *.egg-info
-.pytest_cache
+sdist
+pip-log.txt
+bower_components/
+node_modules/
+doc/build/
+ansible/*.retry
+.venv
+venv
 bin/
 lib/
-lib64
 pyvenv.cfg
+dist/
+var/
+*.suggestion
+
+# Unit test / coverage reports
+.coverage
+.tox
+htmlcov
+.codeintel
+coverage.*
+.pytest_cache
+
+# Pycharm, visual studio
+.idea
+.vscode
+
+# Docker
+docker-compose.override.yml
+
+### Extra lines below are preserved ###
