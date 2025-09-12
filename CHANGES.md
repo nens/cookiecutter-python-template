@@ -1,7 +1,7 @@
 # Changelog for cookiecutter-python-template
 
 
-## 0.6 (unreleased)
+## 0.6 (2025-09-12)
 
 
 - Requiring python 3.12 in the generated project.
