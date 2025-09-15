@@ -1,3 +1,4 @@
+import os.path
 import subprocess
 import sys
 from pathlib import Path
@@ -16,7 +17,7 @@ def python_files() -> list[str]:
 
 
 def create_symlinks(filenames: list[str]) -> bool:
-    django_template_dir = Path("./django")
+    django_template_dir = Path("django")
     original_dir = Path(COOKIECUTTER_BASEDIR)
     changed_something = False
     for filename in filenames:
@@ -30,7 +31,9 @@ def create_symlinks(filenames: list[str]) -> bool:
         # Create symlink (and possibly directory)
         django_file.parent.mkdir(parents=True, exist_ok=True)
         target = original_dir / filename
-        django_file.symlink_to(target)
+        our_relative_dir = [".."] * len(django_file.parent.parents)
+        relative_target = os.path.join(*our_relative_dir, target)
+        django_file.symlink_to(relative_target)
         print(f"CREATED: {django_file}")
         changed_something = True
     return changed_something

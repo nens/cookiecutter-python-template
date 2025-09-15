@@ -1,1 +1,1 @@
-{{ cookiecutter.project_name }}/MANIFEST.in
+../../{{ cookiecutter.project_name }}/MANIFEST.in

@@ -1,1 +1,1 @@
-{{ cookiecutter.project_name }}/src/{{ cookiecutter.package_name }}/__init__.py
+../../../../{{ cookiecutter.project_name }}/src/{{ cookiecutter.package_name }}/__init__.py

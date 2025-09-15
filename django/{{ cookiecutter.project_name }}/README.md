@@ -1,1 +1,1 @@
-{{ cookiecutter.project_name }}/README.md
+../../{{ cookiecutter.project_name }}/README.md

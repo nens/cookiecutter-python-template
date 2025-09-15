@@ -1,1 +1,1 @@
-{{ cookiecutter.project_name }}/.editorconfig
+../../{{ cookiecutter.project_name }}/.editorconfig

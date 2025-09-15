@@ -1,1 +1,1 @@
-{{ cookiecutter.project_name }}/LICENSE
+../../{{ cookiecutter.project_name }}/LICENSE

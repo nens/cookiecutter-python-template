@@ -1,1 +1,1 @@
-{{ cookiecutter.project_name }}/CHANGES.md
+../../{{ cookiecutter.project_name }}/CHANGES.md
