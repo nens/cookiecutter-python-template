@@ -27,6 +27,7 @@ def create_symlinks(filenames: list[str]) -> bool:
             continue
         if django_file.is_file():
             print(f"Custom:  {django_file}")
+            print(f"    diff -u '{original_dir / filename}' '{django_file}'")
             continue
         # Create symlink (and possibly directory)
         django_file.parent.mkdir(parents=True, exist_ok=True)
