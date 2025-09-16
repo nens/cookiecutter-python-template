@@ -6,6 +6,7 @@
 
 - Removed old `test.yml`.
 - Documented `--no-cov` for vscode when debugging inside tests.
+- Fixed exclusion of tests/ files in the distribution.
 
 
 ## 0.7 (2025-09-16)
