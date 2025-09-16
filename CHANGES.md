@@ -4,7 +4,7 @@
 ## 0.7 (unreleased)
 
 
-- Nothing changed yet.
+- Added a `django` directory with django customisations on top of the regular python cookiecutter. Pass `--directory django` to cookiecutter to use it.
 
 
 ## 0.6 (2025-09-12)
