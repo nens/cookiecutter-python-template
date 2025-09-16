@@ -1,5 +1,6 @@
 {
     "project_name": "your-project-with-dashes",
     "package_name": "{{ cookiecutter.project_name.lower().replace('-', '_') }}",
-    "project_short_description": "A short one-line description of the project"
+    "project_short_description": "A short one-line description of the project",
+    "__mixedcase_name": "{{ project_name.split('-')|map('capitalize')|join }}"
 }
