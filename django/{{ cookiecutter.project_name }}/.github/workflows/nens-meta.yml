@@ -1,0 +1,1 @@
+../../../../{{ cookiecutter.project_name }}/.github/workflows/nens-meta.yml

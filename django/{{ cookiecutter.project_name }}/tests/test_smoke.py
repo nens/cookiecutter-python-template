@@ -1,0 +1,1 @@
+../../../{{ cookiecutter.project_name }}/tests/test_smoke.py
