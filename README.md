@@ -8,7 +8,7 @@ you can create a fresh plain python project or library.
 
 Install/upgrade cookiecutter:
 
-    $ pip install cookiecutter --upgrade
+    $ uv tool install cookiecutter --upgrade
 
 Run the following command and answer the questions:
 
