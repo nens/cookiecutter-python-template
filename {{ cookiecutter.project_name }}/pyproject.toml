@@ -23,6 +23,8 @@ homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 
 [tool.pytest.ini_options]
 addopts = "--cov --cov-fail-under=80"
+# Debugging tests in vscode? Run pytest with "--no-cov", see
+# https://pytest-cov.readthedocs.io/en/latest/debuggers.html
 
 [tool.zest-releaser]
 release = false
@@ -47,4 +49,6 @@ venvPath = "."
 venv = ".venv"
 
 [dependency-groups]
+# The "dev" group is automatically installed by uv. When using pip,
+# do something like "pip install -e . --group test".
 dev = ["pytest>=8.4.2", "pytest-cov>=6.3.0", "pytest-sugar>=1.1.1"]
