@@ -50,5 +50,5 @@ venv = ".venv"
 
 [dependency-groups]
 # The "dev" group is automatically installed by uv. When using pip,
-# do "pip install --group test".
+# do something like "pip install -e . --group test".
 dev = ["pytest>=8.4.2", "pytest-cov>=6.3.0", "pytest-sugar>=1.1.1"]
