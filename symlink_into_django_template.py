@@ -40,8 +40,17 @@ def create_symlinks(filenames: list[str]) -> bool:
     return changed_something
 
 
+def check_for_dead_symlinks():
+    for root, dirs, files in Path("django").walk():
+        d = Path(root)  # d = directory
+        for f in files:  # f = file
+            if not (d / f).exists():
+                print(f"BROKEN symlink '{d / f}'")
+
+
 if __name__ == "__main__":
     changed_something = create_symlinks(python_files())
     if changed_something:
         # Exit with error code: that way we can be run as check in a github action.
         sys.exit("Some symlinks were created")
+    check_for_dead_symlinks()
