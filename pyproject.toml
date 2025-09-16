@@ -24,6 +24,7 @@ dependencies = [
     "cookiecutter"
 ]
 
+
 [project.urls]
 homepage = "https://github.com/nens/cookiecutter-python-template"
 
@@ -42,9 +43,3 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "I", "UP", "C901"]
 
-[dependency-groups]
-dev = [
-    "pre-commit>=4.3.0",
-    "pytest>=8.4.2",
-    "pytest-sugar>=1.1.1",
-]
