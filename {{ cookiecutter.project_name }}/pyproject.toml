@@ -23,6 +23,8 @@ homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 
 [tool.pytest.ini_options]
 addopts = "--cov --cov-fail-under=80"
+# Debugging tests in vscode? Run pytest with "--no-cov", see
+# https://pytest-cov.readthedocs.io/en/latest/debuggers.html
 
 [tool.zest-releaser]
 release = false
