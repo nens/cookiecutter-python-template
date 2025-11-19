@@ -17,14 +17,17 @@ classifiers = ["Programming Language :: Python"]
 keywords = []
 requires-python = ">=3.12"
 dependencies = [
-    "django-types>=0.22.0",
-    "django==5.2.*",
-    "djangorestframework-gis>=1.2.0",
-    "djangorestframework-types>=0.9.0",
-    "djangorestframework>=3.16.1",
-    "nens-auth-client>=1.6.1",
-    "psycopg2-binary>=2.9.10",
-    "whitenoise>=6.10.0",
+  "django-types>=0.22.0",
+  "django==5.2.*",
+  "djangorestframework>=3.16.1",
+  "djangorestframework-dataclasses>=1.4.0",
+  "djangorestframework-gis>=1.2.0",
+  "djangorestframework-types>=0.9.0",
+  "drf-spectacular[sidecar]>=0.28.0",
+  "gdal==3.8.4",  # 3.8.4 is the version in 24.04. Works with newer libs.
+  "psycopg2-binary>=2.9.10",
+  "sentry-sdk[django]>=2.38.0",
+  "whitenoise>=6.10.0",
 ]
 
 [project.urls]

@@ -10,41 +10,112 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+import sentry_sdk
 
 # BASE_DIR is the root of the project (with the 'pyproject.toml').
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+MEDIA_ROOT = BASE_DIR / "var" / "media"
+DB_ROOT = BASE_DIR / "var" / "db"
+# Make sure they exist
+MEDIA_ROOT.mkdir(exist_ok=True, parents=True)
+DB_ROOT.mkdir(exist_ok=True, parents=True)
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+# Environment variables, used in the docker-compose.yml
+_debug_env = os.getenv("DEBUG", default="true")
+DEBUG = _debug_env.lower() == "true"  # default: True
+DATABASE_HOST = os.getenv("DATABASE_HOST", "local")  # p-service-db-01.nens
+SENTRY_DSN = os.getenv("SENTRY_DSN")  # Not required, only used in staging/production.
+EMAIL_HOST = os.getenv("EMAIL_HOST", default="")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Generate one with "uv run python":
 #
 #     from django.core.management.utils import get_random_secret_key
 #     print(get_random_secret_key())
-SECRET_KEY = "django-insecure-tqaiwwkc!13a6t)_9e1eqwu1qeolix_sel0c@w%d00bcssjqo@"
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    default="change-this-see-above-or-pay-my-beer-on-friday",
+)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ALLOWED_HOSTS = [
+    ".actual-domain.todo",
+    "localhost",
+    "127.0.0.1",
+]
 
-ALLOWED_HOSTS = []
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://actual-domain.todo",
+    "http://localhost:8000",
+    "http://localhost:4200",
+    "http://localhost:7772",
+]
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {"format": "%(asctime)s %(name)s %(levelname)s\n    %(message)s"},
+        "simple": {"format": "%(levelname)s %(name)s %(message)s"},
+    },
+    "handlers": {
+        "null": {"level": "DEBUG", "class": "logging.NullHandler"},
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "simple" if DEBUG else "verbose",
+        },
+    },
+    "loggers": {
+        "root": {
+            "handlers": ["console"],
+            "level": "DEBUG" if DEBUG else "INFO",
+            "propagate": True,
+            "disable_existing_loggers": False,
+        },
+        "django.db.backends": {
+            "handlers": ["console"],
+            "propagate": False,
+            "level": "INFO",  # Set to DEBUG to show sql queries
+        },
+        "urllib3": {
+            "handlers": ["console"],
+            "propagate": False,
+            "level": "INFO",  # Set to DEBUG to show all URL requests to lizard
+        },
+        "django.request": {
+            "handlers": ["console"],
+            "propagate": False,
+            "level": "INFO" if DEBUG else "ERROR",  # WARN also shows 404 errors
+        },
+    },
+}
 
 # Application definition
 
 INSTALLED_APPS = [
+    "{{ cookiecutter.package_name }}",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
+    "django.contrib.sites",
     "django.contrib.messages",
+    "django.contrib.gis",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework_gis",
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -62,6 +133,7 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
+                "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
@@ -76,12 +148,25 @@ WSGI_APPLICATION = "{{ cookiecutter.package_name }}.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if DATABASE_HOST != "local":  # pragma: no cover
+    # Normal situation
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.contrib.gis.db.backends.postgis",
+            "NAME": "{{ cookiecutter.package_name }}",
+            "USER": "{{ cookiecutter.package_name }}",
+            "PASSWORD": "TODO, see Reinout's docs",
+            "HOST": DATABASE_HOST,
+        }
     }
-}
+else:
+    # Local development
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.contrib.gis.db.backends.spatialite",
+            "NAME": DB_ROOT / "{{ cookiecutter.package_name }}.db",
+        }
+    }
 
 
 # Password validation
@@ -101,17 +186,12 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
 
@@ -119,8 +199,49 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+if SENTRY_DSN:  # pragma: no cover
+    # SENTRY_DSN will only be set on staging/production, btw.
+    sentry_sdk.init(dsn=SENTRY_DSN)
+
+if EMAIL_HOST:  # pragma: no cover
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+DEFAULT_FROM_EMAIL = "{{ cookiecutter.package_name }} <no-reply@nelen-schuurmans.nl>"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# DRF + api docs
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        # Use django's regular login mechanism, that's fine for a javascript frontend
+        # running on the same url.
+        "rest_framework.authentication.SessionAuthentication",
+    ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 100,
+}
+
+SPECTACULAR_SETTINGS = {
+    "SWAGGER_UI_DIST": "SIDECAR",  # shorthand to use the sidecar instead
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
+    "REDOC_DIST": "SIDECAR",
+}
+
+
+# You probably have to pass a maptiler api key to the frontend
+# MAPTILER_API_KEY = "TODO"
+
+# Understand that we're behind a https-terminating haproxy.
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
