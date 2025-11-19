@@ -54,3 +54,5 @@ If you need a new dependency (like `requests`), add it in
 - Update this readme.
 
 - Remove this section as you've done it all :-)
+
+- Look at the `climatescan` project for docker-compose examples.

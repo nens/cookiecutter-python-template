@@ -1,0 +1,61 @@
+# Goal: do the day-to-day deployment of the site. This is done as the
+# 'buildout' user, not as root. At least, we're going to try to do it like
+# this. You need to have an ssh key configured to log in with: this is handled
+# in the provision.yml playbook.
+
+---
+- name: Deploy new version of the project setup to the server
+  hosts: web
+  remote_user: buildout
+  tasks:
+
+    - name: Checkout correct version from github
+      ansible.builtin.git:
+        accept_hostkey: true
+        dest: {% raw %}/srv/{{ site_name }}{% endraw %}
+        repo: ssh://git@github.com/nens/{{ cookiecutter.project_name }}.git{% raw %}
+        version: "{{ checkout_name }}"
+
+    - name: Link server docker-compose file
+      ansible.builtin.file:
+        state: link
+        src: /srv/{{ site_name }}/docker-compose.server.yml
+        dest: /srv/{{ site_name }}/docker-compose.yml
+        # docker-compose files aren't included in the cookiecutter template.
+        # Look at (for instance) the "climatescan" project.
+
+    - name: Grab github docker token from server
+      ansible.builtin.command:  # noqa: no-changed-when
+        cmd: "cat ~/.github-docker-pull-token.txt"
+      register: token
+
+    - name: Log into github package repo
+      community.docker.docker_login:
+        registry: ghcr.io
+        username: nensbuildout
+        password: "{{ token.stdout }}"
+
+    - name: Build our own docker
+      ansible.builtin.shell:  # noqa: command-instead-of-shell no-changed-when
+        cmd: "docker-compose build"
+        chdir: /srv/{{ site_name }}
+
+    - name: Pull dockers
+      ansible.builtin.shell:  # noqa: command-instead-of-shell no-changed-when
+        cmd: "docker-compose pull"
+        chdir: /srv/{{ site_name }}
+
+    - name: Stop dockers
+      ansible.builtin.shell:  # noqa: command-instead-of-shell no-changed-when
+        cmd: "docker-compose down"
+        chdir: /srv/{{ site_name }}
+
+    - name: Start/update dockers
+      ansible.builtin.shell:  # noqa: command-instead-of-shell no-changed-when
+        cmd: "docker-compose up -d"
+        chdir: /srv/{{ site_name }}
+
+    - name: Run migrate
+      ansible.builtin.command:  # noqa: no-changed-when
+        cmd: "docker-compose run --rm web python src/manage.py migrate --noinput"
+        chdir: /srv/{{ site_name }}{% endraw %}
