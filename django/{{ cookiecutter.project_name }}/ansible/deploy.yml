@@ -12,8 +12,8 @@
     - name: Checkout correct version from github
       ansible.builtin.git:
         accept_hostkey: true
-        dest: /srv/{{ site_name }}
-        repo: ssh://git@github.com/nens/{{ cookiecutter.project_name }}.git
+        dest: {% raw %}/srv/{{ site_name }}{% endraw %}
+        repo: ssh://git@github.com/nens/{{ cookiecutter.project_name }}.git{% raw %}
         version: "{{ checkout_name }}"
 
     - name: Link server docker-compose file
@@ -59,3 +59,4 @@
       ansible.builtin.command:  # noqa: no-changed-when
         cmd: "docker-compose run --rm web python src/manage.py migrate --noinput"
         chdir: /srv/{{ site_name }}
+{% endraw %}

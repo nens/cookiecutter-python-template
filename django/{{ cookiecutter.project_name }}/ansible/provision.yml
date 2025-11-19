@@ -23,7 +23,7 @@
     - name: Add maintainers' ssh keys so they can log in as user buildout.
       ansible.posix.authorized_key:
         user: buildout
-        key: https://github.com/{{ item }}.keys
+        key: {% raw %}https://github.com/{{ item }}.keys{% endraw %}
       with_items:
         - reinout
         # TODO: add more maintainers
