@@ -105,10 +105,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.messages",
-    "django.contrib.gis",
+    # "django.contrib.gis",
     "django.contrib.staticfiles",
     "rest_framework",
-    "rest_framework_gis",
+    # "rest_framework_gis",
     "drf_spectacular",
     "drf_spectacular_sidecar",
 ]
