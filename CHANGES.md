@@ -4,7 +4,7 @@
 ## 0.9 (unreleased)
 
 
-- Nothing changed yet.
+- Updated django directory with changes from a recent project.
 
 
 ## 0.8 (2025-09-16)
