@@ -2,7 +2,7 @@
 
 [project]
 name = "cookiecutter-python-template"
-version = "0.9.dev0"
+version = "0.9"
 description = "Cookiecutter template for a plain python project or library"
 readme = "README.md"
 requires-python = ">=3.12"

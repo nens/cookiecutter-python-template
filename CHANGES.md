@@ -1,7 +1,7 @@
 # Changelog for cookiecutter-python-template
 
 
-## 0.9 (unreleased)
+## 0.9 (2025-11-19)
 
 
 - Updated django directory with changes from a recent project.
