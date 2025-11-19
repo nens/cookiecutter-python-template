@@ -58,5 +58,4 @@
     - name: Run migrate
       ansible.builtin.command:  # noqa: no-changed-when
         cmd: "docker-compose run --rm web python src/manage.py migrate --noinput"
-        chdir: /srv/{{ site_name }}
-{% endraw %}
+        chdir: /srv/{{ site_name }}{% endraw %}

@@ -7,6 +7,6 @@ project_name = "{{ cookiecutter.project_name }}"
 
 [meta_workflow]
 # Python version to use for linting and so
-python_version = '3.12'
+python_version = "3.12"
 # Whether to run pytest in the workflow
 run_pytest = true

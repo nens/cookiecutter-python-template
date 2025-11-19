@@ -30,7 +30,7 @@
 
     - name: Create dir inside /srv for the checkout
       ansible.builtin.file:
-        path: /srv/{{ site_name }}
+        path: {% raw %}/srv/{{ site_name }}{% endraw %}
         state: directory
         mode: "0755"
         owner: buildout
