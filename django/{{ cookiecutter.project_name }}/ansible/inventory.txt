@@ -1,0 +1,6 @@
+[web]
+YOUR-SERVER
+
+[web:vars]
+site_name=TODO.lizard.net
+checkout_name="main"
