@@ -30,7 +30,7 @@ build-backend = "setuptools.build_meta"
 # Pyright/pylance/vscode configuration.
 # Note: if you want a different setup, you can overwrite this with a
 # "pyrightconfig.json", which takes precedence.
-include = "src"
+include = ["src"]
 venvPath = "."
 venv = ".venv"
 

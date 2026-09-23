@@ -12,7 +12,7 @@ keywords = []
 # Get classifier strings from http://www.python.org/pypi?%3Aaction=list_classifiers
 classifiers = ["Programming Language :: Python"]
 dependencies = [
-  "django==5.2.*",
+  "django==6.1.*",
   "django-types>=0.22.0",
   "djangorestframework>=3.16.1",
   "djangorestframework-dataclasses>=1.4.0",
@@ -29,12 +29,7 @@ dependencies = [
 homepage = "https://github.com/nens/{{ cookiecutter.project_name }}"
 
 [dependency-groups]
-dev = [
-  "pytest>=8.4.2",
-  "pytest-cov>=6.3.0",
-  "pytest-django>=4.11",
-  "pytest-sugar>=1.1.1"
-]
+dev = ["pytest>=8.4.2", "pytest-cov>=6.3.0", "pytest-django>=4.11", "pytest-sugar>=1.1.1"]
 
 # See https://nens-meta.readthedocs.io/en/latest/config-files.html
 [build-system]
@@ -45,7 +40,7 @@ build-backend = "setuptools.build_meta"
 # Pyright/pylance/vscode configuration.
 # Note: if you want a different setup, you can overwrite this with a
 # "pyrightconfig.json", which takes precedence.
-include = "src"
+include = ["src"]
 venvPath = "."
 venv = ".venv"
 
